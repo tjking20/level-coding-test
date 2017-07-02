@@ -15,37 +15,47 @@ var rover = {
 	moveRover: function(){
 		switch (this.direction){
 			case "N":
-				this.yPos ++
+				return this.yPos ++
 				break;
 
 			case "E":
-				this.xPos ++
+				return this.xPos ++
 				break;
 
 			case "S":
-				this.yPos --
-				console.log(this.yPos)
+				return this.yPos --
 				break;
 
 			case "W":
-				this.xPos --
+				return this.xPos --
 				break;
+		}
+	},
 
+	turnRover: function(rotation){
+		var cardinalDirections = ["N", "E", "S", "W"];
+
+		//old direcition indicates the direction to be changed
+		var oldIndex = cardinalDirections.indexOf(this.direction);
+
+		if (rotation = "L") {
+			
+			//new direction "turns the rover 90 dgrees(shifts the position in the array left"
+			var indexLeft = oldIndex -1;
+			if (indexLeft == -1) indexLeft = 3;
+
+			var turnLeft = cardinalDirections[indexLeft];
+			this.direction = turnLeft;
 		}
 	}
-	// move: function(xPos, yPos){
-	// 	var finalPos = [];
 
-	// 	finalPos.push(currentXPos, currentYPos);
-	// 	finalPos = finalPos.join(" ");
-
-	// 	console.log(finalPos);
-	// },
 }
 
+rover.turnRover("L");
+console.log(rover.direction);
 
-console.log(rover);
-rover.moveRover();
+// console.log(rover);
+// rover.moveRover();
 
 
 // moveRover(initialXPos, initialYPos);
