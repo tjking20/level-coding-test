@@ -63,24 +63,12 @@ var rover = {
 				this.moveRover();
 			}
 		}
-
 	}
-
-
-
 }
 // console.log(rover.path);
 rover.initiateRover(rover.path);
 console.log(rover.xPos, rover.yPos, rover.direction)
 
-// console.log(rover);
-// rover.moveRover();
-
-
-// moveRover(initialXPos, initialYPos);
-
-
-// console.log("hello world " + inputCommand);
 
 
 
