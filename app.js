@@ -1,19 +1,38 @@
 //establishing variables for data within the rover object
-var initialXPos = process.argv[2];
-var initialYPos = process.argv[3];
+var initialXPos = parseInt(process.argv[2]);
+var initialYPos = parseInt(process.argv[3]);
 var roverInstructions = process.argv[4].split("");
 var initialDirection = roverInstructions[0];
 
 roverInstructions.shift();
 
 
-
-
 var rover = {
 	xPos: initialXPos,
 	yPos: initialYPos,
 	direction: initialDirection,
-	path: roverInstructions
+	path: roverInstructions,
+	moveRover: function(){
+		switch (this.direction){
+			case "N":
+				this.yPos ++
+				break;
+
+			case "E":
+				this.xPos ++
+				break;
+
+			case "S":
+				this.yPos --
+				console.log(this.yPos)
+				break;
+
+			case "W":
+				this.xPos --
+				break;
+
+		}
+	}
 	// move: function(xPos, yPos){
 	// 	var finalPos = [];
 
@@ -24,7 +43,9 @@ var rover = {
 	// },
 }
 
+
 console.log(rover);
+rover.moveRover();
 
 
 // moveRover(initialXPos, initialYPos);
