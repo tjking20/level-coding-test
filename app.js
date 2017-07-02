@@ -1,22 +1,33 @@
-//string of letters input by NASA
-// var nasaInput = process.argv;
+//establishing variables for data within the rover object
 var initialXPos = process.argv[2];
 var initialYPos = process.argv[3];
-var roverDirections = process.argv[4];
+var roverInstructions = process.argv[4].split("");
+var initialDirection = roverInstructions[0];
 
-function moveRover(a,b){
+roverInstructions.shift();
 
-	var currentXPos = a;
-	var currentYPos = b;
-	var finalPos = [];
 
-	finalPos.push(currentXPos, currentYPos)
 
-	console.log(finalPos);
 
+var rover = {
+	xPos: initialXPos,
+	yPos: initialYPos,
+	direction: initialDirection,
+	path: roverInstructions
+	// move: function(xPos, yPos){
+	// 	var finalPos = [];
+
+	// 	finalPos.push(currentXPos, currentYPos);
+	// 	finalPos = finalPos.join(" ");
+
+	// 	console.log(finalPos);
+	// },
 }
 
-moveRover(initialXPos, initialYPos);
+console.log(rover);
+
+
+// moveRover(initialXPos, initialYPos);
 
 
 // console.log("hello world " + inputCommand);
