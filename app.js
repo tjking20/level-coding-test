@@ -39,12 +39,10 @@ var rover = {
 		var oldIndex = cardinalDirections.indexOf(this.direction);
 
 		if (rotation == "L") {
+			var indexLeft = oldIndex -1;//changes the index to the element on the left
+			if (indexLeft == -1) indexLeft = 3;//rotates to the end of the array
 			
-			//new direction "turns the rover 90 dgrees(shifts the position in the array left"
-			var indexLeft = oldIndex -1;
-			if (indexLeft == -1) indexLeft = 3;
-
-			var turnLeft = cardinalDirections[indexLeft];
+			var turnLeft = cardinalDirections[indexLeft];//assigns new element based on changed index
 			this.direction = turnLeft;
 		} else if (rotation == "R") {
 			var indexRight = oldIndex +1;
@@ -53,12 +51,27 @@ var rover = {
 			var turnRight = cardinalDirections[indexRight];
 			this.direction = turnRight;
 		}
+	},
+	initiateRover: function(instructions){
+		// console.log("foobar")
+		for(var i = 0; i < instructions.length; i++){
+
+			// console.log("bears")
+			if ((instructions[i] == "R") || (instructions[i] == "L")){
+				this.turnRover(instructions[i]);
+			}else if (instructions[i] == "M"){
+				this.moveRover();
+			}
+		}
+
 	}
 
-}
 
-rover.turnRover("R");
-console.log(rover.direction);
+
+}
+// console.log(rover.path);
+rover.initiateRover(rover.path);
+console.log(rover.xPos, rover.yPos, rover.direction)
 
 // console.log(rover);
 // rover.moveRover();
