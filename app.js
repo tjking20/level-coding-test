@@ -38,7 +38,7 @@ var rover = {
 		//old direcition indicates the direction to be changed
 		var oldIndex = cardinalDirections.indexOf(this.direction);
 
-		if (rotation = "L") {
+		if (rotation == "L") {
 			
 			//new direction "turns the rover 90 dgrees(shifts the position in the array left"
 			var indexLeft = oldIndex -1;
@@ -46,12 +46,18 @@ var rover = {
 
 			var turnLeft = cardinalDirections[indexLeft];
 			this.direction = turnLeft;
+		} else if (rotation == "R") {
+			var indexRight = oldIndex +1;
+			if (indexRight == 4) indexRight = 0;
+
+			var turnRight = cardinalDirections[indexRight];
+			this.direction = turnRight;
 		}
 	}
 
 }
 
-rover.turnRover("L");
+rover.turnRover("R");
 console.log(rover.direction);
 
 // console.log(rover);
