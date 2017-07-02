@@ -1,0 +1,6 @@
+1 take in a string of letters via process.argv (using a for loop over process.argv return
+	the letters)
+
+2 write a function that takes in position array //reutrn position
+tion. 
+
