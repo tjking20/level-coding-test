@@ -9,10 +9,11 @@ class Rover {
 		this.deployCoords = deployCoords.trim().split(" "),
 		this.xPos = parseInt(this.deployCoords[0]),
 		this.yPos = parseInt(this.deployCoords[1]),
+		this.heading = this.deployCoords[2].toUpperCase(),
 
 		//directions and heading
-		this.directions = directions.trim().toUpperCase(),//ensures all incoming direcitons are capitalized
-		this.heading = this.directions[0]
+		this.directions = directions.trim().toUpperCase()//ensures all incoming direcitons are capitalized
+		
 		
 	}
 
@@ -64,9 +65,8 @@ class Rover {
 	initiateRover(){
 		const roverInstructions = this.directions
 
-		//loops over the intructions (skipping the heading in the [0] index)
 		//allows us to execute functions for movement or turning
-		for(var i = 1; i < roverInstructions.length; i++){
+		for(var i = 0; i < roverInstructions.length; i++){
 
 			if ((roverInstructions[i] == "R") || (roverInstructions[i] == "L")){
 				//executes the turnRover based on which direction is passed in
@@ -84,14 +84,19 @@ class Rover {
 			}
 		}
 
-		if((this.xPos <= this.gridLength) && (this.yPos <= this.gridHeight)){
+		//conditional checks to see if the rover has gone outside its limits
+		if((this.xPos > this.gridLength) || (this.yPos > this.gridHeight)){
 
-			console.log(`The new rover position is: ${this.xPos} ${this.yPos} ${this.heading}`)
-		
-		} else{
-		
 			console.log("I'm sorry, your rover has driven off the plateau.",
 				"You should probably run. Their gonna be pretty pissed about this.");
+		
+		} else if ((this.xPos < 0) || (this.yPos < 0)){
+
+			console.log("You have wandered outside your specified area...");
+
+		} else{
+		
+			console.log(`The new rover position is: ${this.xPos} ${this.yPos} ${this.heading}`);
 		
 		}
 		
