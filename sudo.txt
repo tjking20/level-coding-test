@@ -1,8 +1,0 @@
-1 take in a string of letters via process.argv (using a for loop over process.argv return
-	the letters)
-
-2 create a rover object that contains position and movement data and methods
-
-3 return object with initial data from terminal
-
-4 create method to handle movement, take in direction then return new x or y position
