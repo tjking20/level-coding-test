@@ -22,7 +22,7 @@
 - node app.js 
 
 
-##Technologies
+## Technologies
 
 - ES6/JavaScript
 - NodeJS
