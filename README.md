@@ -6,9 +6,12 @@
 
  You have the ability to control the mars rover. Terminal will give instructions and allow you to input grid coordinates, deployment data, and movement instructions. Once you've entered your data, Terminal will let you know where the rover is now. 
 
- Sample Input
+ Sample Input:
+
  5 5
+
  1 2 N
+ 
  LMLMLMLMM
 
 !["gif of mars rover app"](rover-test.gif)
